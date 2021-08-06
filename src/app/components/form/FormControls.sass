@@ -1,0 +1,133 @@
+@import '../../../styles/common'
+
+@mixin shadow()    
+    box-shadow: 0px 1px 3px 0px $inputShadowColor
+
+/***** FORM LAYOUT **************************/
+
+.form-controls
+    display: flex
+    flex-wrap: wrap
+    flex-direction: row
+    align-items: flex-end
+    justify-content: space-around
+
+.form-item-dropdown, .form-item-checkbox-group
+    flex-basis: 98%
+
+.form-item
+    flex-basis: 48%
+
+.form-input
+
+    label
+        text-transform: uppercase
+        display: block
+        font-weight: 400
+        font-size: .8rem
+        margin-top: .825rem
+        margin-bottom: .625rem
+
+    input, select
+        @include shadow
+        margin: 0
+        padding: 0
+        margin-bottom: .625rem
+        font-size: .8rem
+        border: #{$borderInput} solid $inputBorderColor
+        background-color: $inputBackgroundColor
+        height: 2rem
+        &:focus, &:active
+            border-color: $inputActiveBorderColor
+            outline: none
+    input
+        width: calc(100% - #{$borderInput * 2})
+    select
+        width: 30%
+        height: 2.3rem
+
+    &.error
+        input, select
+            border: 3px solid $inputErrorBorderColor
+            background-color: $inputErrorBackgroundColor
+
+    .error-caption
+        margin-bottom: .625rem
+        margin-top: .125rem
+        color: $inputErrorCaptionColor
+        font-size: .7rem
+        font-weight: 600
+        font-style: italic
+
+        &:first-letter
+            text-transform: capitalize
+
+.form-item-checkbox-group
+    margin-top: 1rem
+
+    .checkbox-wrapper
+        display: flex
+        flex-wrap: wrap
+        flex-direction: row
+        align-items: flex-start
+        justify-content: space-between
+
+        .checkbox-item
+            flex-basis: 48%
+            align-self: flex-start
+            display: flex
+            align-items: flex-end
+            input
+                width: 1.5rem
+                height: 1.5rem
+            label
+                // display: inline-block
+                line-height: 1.5rem
+                margin-left: 10px
+
+
+
+/***** BUTTONS **************************/
+
+.form-buttons
+    margin-left: .625rem
+    margin-top: 4.735rem
+    button
+        font-size: .8rem
+        background-color: $buttonBackGroundColor
+        border: none
+        border-radius: 2.5rem
+        text-transform: uppercase
+        width: 7.5rem
+        height: 2.5rem
+        @include shadow
+        &[type="submit"]
+            color: $whiteColor
+        &[type="reset"]
+            margin-left: 1.25rem
+            background-color: $whiteColor
+            color: $grayHard
+        
+
+@media all and (max-width: 47.937rem)
+    .form-controls
+        flex-direction: column
+        align-items: stretch
+    .form-input
+        select
+            width: 100%
+    .form-item-checkbox-group
+        .checkbox-wrapper
+            .checkbox-item
+                flex-basis: 100%
+    .form-buttons
+        margin-left: 0
+        text-align: center
+        button
+            width: 100%
+            &[type="reset"]
+                margin-left: 0
+                margin-top: 1.25rem
+
+
+

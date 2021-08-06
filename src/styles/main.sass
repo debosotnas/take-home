@@ -1,0 +1,33 @@
+@import 'common'
+
+*
+    font-family: 'Open Sans', sans-serif
+
+html
+    font-size: $sizeBase
+
+    body
+        background-image: url('../assets/texture-min.jpg')
+
+        #root
+            display: flex
+            justify-content: center
+
+            h1
+                font-size: 2rem
+
+            .container
+                max-width: $sizeBase * 90
+                padding: $sizeBase
+
+                .header
+                    display: flex
+                    flex-wrap: wrap
+                    flex-direction: row
+                    justify-content: space-around
+
+                    &>div
+                        flex-basis: 98%
+
+                    p
+                        font-weight: 300

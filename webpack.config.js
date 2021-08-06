@@ -3,6 +3,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { HotModuleReplacementPlugin } = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
@@ -40,6 +41,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./src/index.html"),
       filename: "index.html",
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "./src/assets"),
+          to: path.resolve(__dirname, "./dist/assets"),
+        },
+      ],
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css",
