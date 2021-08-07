@@ -1,3 +1,7 @@
+import { FORM_CONTROLS } from "../../strings";
+
+const Controls = FORM_CONTROLS.Controls;
+
 export const FORM_CONTROL_TYPES = {
   TEXT_INPUT: "text-input",
   DROPDOWN_SELECT: "dropdown-select",
@@ -9,75 +13,82 @@ export const VALIDATION_TYPE = {
   EMAIL: "email",
 };
 
+export const RESPONSE_STATUS = {
+  SUCCESS: "success",
+  ERROR: "error",
+};
+
 export const CONTROLS = [
   {
     id: "firstName",
-    label: "first name",
+    label: Controls.FirstName.Label,
     isRequired: true,
-    error: "first name is required",
+    error: Controls.FirstName.Error,
     type: FORM_CONTROL_TYPES.TEXT_INPUT,
     options: [],
     validation: VALIDATION_TYPE.NON_EMPTY,
   },
   {
     id: "lastName",
-    label: "last name",
+    label: Controls.LastName.Label,
     isRequired: true,
-    error: "last name is required",
+    error: Controls.LastName.Error,
     type: FORM_CONTROL_TYPES.TEXT_INPUT,
     options: [],
     validation: VALIDATION_TYPE.NON_EMPTY,
   },
   {
     id: "email",
-    label: "email address",
+    label: Controls.Email.Label,
     isRequired: true,
-    error: "email is required",
+    error: Controls.Email.Error,
     type: FORM_CONTROL_TYPES.TEXT_INPUT,
     options: [],
     validation: VALIDATION_TYPE.EMAIL,
   },
   {
     id: "org",
-    label: "organization",
+    label: Controls.Organization.Label,
     type: FORM_CONTROL_TYPES.TEXT_INPUT,
     options: [],
   },
   {
     id: "euResident",
-    label: "EU resident",
+    label: Controls.EUResident.Label,
     isRequired: true,
-    error: "EU Resident is required",
+    error: Controls.EUResident.Error,
     type: FORM_CONTROL_TYPES.DROPDOWN_SELECT,
     options: [
       {
-        label: "Yes",
-        value: "Yes",
+        label: Controls.EUResident.OptionYes,
+        value: Controls.EUResident.OptionYes,
       },
       {
-        label: "No",
-        value: "No",
+        label: Controls.EUResident.OptionNo,
+        value: Controls.EUResident.OptionNo,
       },
     ],
   },
   {
     id: "channels",
     isRequired: 1,
-    error: "At least one of these is required",
+    error: Controls.Channels.Error,
     type: FORM_CONTROL_TYPES.CHECKBOX_GROUP,
     options: [
       {
-        label: "advances",
-        value: "advances",
+        label: Controls.Channels.Options.Advances,
+        value: Controls.Channels.Options.Advances,
       },
       {
-        label: "alerts",
-        value: "alerts",
+        label: Controls.Channels.Options.Alerts,
+        value: Controls.Channels.Options.Alerts,
       },
       {
-        label: "other communications",
-        value: "other",
+        label: Controls.Channels.Options.OtherLabel,
+        value: Controls.Channels.Options.OtherValue,
       },
     ],
   },
 ];
+
+export const API_SUBSCRIBE_URL = "http://api.hero-take-home.com/subscribe";

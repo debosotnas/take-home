@@ -54,6 +54,6 @@ module.exports = {
       filename: "[name].css",
     }),
     new CleanWebpackPlugin(),
-    new HotModuleReplacementPlugin(),
+    // new HotModuleReplacementPlugin(),
   ],
 };

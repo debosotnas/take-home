@@ -1,4 +1,5 @@
 import { h } from "dom-chef";
+import { FORM_CONTROLS } from "../../../strings.js";
 import ControlBase from "./ControlBase.js";
 
 export class CheckBoxGroup extends ControlBase {
@@ -45,7 +46,9 @@ export class CheckBoxGroup extends ControlBase {
             </label>
           )}
           <fieldset>
-            <legend className="visually-hidden">communication channel</legend>
+            <legend className="visually-hidden">
+              {FORM_CONTROLS.CommunicationChannels}
+            </legend>
             <div className="checkbox-wrapper">
               {opts.map(({ value, label }) => {
                 return (

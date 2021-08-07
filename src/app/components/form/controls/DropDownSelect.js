@@ -1,4 +1,5 @@
 import { h } from "dom-chef";
+import { FORM_CONTROLS } from "../../../strings.js";
 import ControlBase from "./ControlBase.js";
 
 const INITIAL_DEFAULT_VALUE = "select-one";
@@ -40,7 +41,9 @@ class DropDownSelect extends ControlBase {
             id={this.props.id}
             name={this.props.id}
           >
-            <option value={INITIAL_DEFAULT_VALUE}>- SELECT ONE -</option>
+            <option value={INITIAL_DEFAULT_VALUE}>
+              {FORM_CONTROLS.SelectOne}
+            </option>
             {opts.map(({ value, label }) => {
               return <option value={value}>{label}</option>;
             })}

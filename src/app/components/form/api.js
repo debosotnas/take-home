@@ -1,4 +1,5 @@
 import "regenerator-runtime/runtime";
+import { API_SUBSCRIBE_URL } from "./constants";
 
 const testFetchSuccess = true;
 const testFetchDelay = 2000;
@@ -31,5 +32,5 @@ export const makeSignUp = async (payload) => {
     method: "POST",
     body: JSON.stringify(payload),
   };
-  return await mockFetch("http://api.hero-take-home.com/subscribe", options);
+  return await mockFetch(API_SUBSCRIBE_URL, options);
 };

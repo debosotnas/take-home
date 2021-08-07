@@ -1,5 +1,6 @@
 import { h } from "dom-chef";
 import { Box, FormControl } from "./components/index.js";
+import { TITLES } from "./strings";
 
 const App = () => {
   const formControl = new FormControl();
@@ -8,7 +9,7 @@ const App = () => {
     <Box className="container">
       <Box className="header">
         <div>
-          <h1>Sign up for email updates</h1>
+          <h1>{TITLES.SignUp}</h1>
         </div>
       </Box>
       {formControl.render()}

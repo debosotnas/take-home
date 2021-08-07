@@ -1,4 +1,6 @@
 import "regenerator-runtime/runtime";
+import { ERRORS } from "../../strings.js";
+import { RESPONSE_STATUS } from "./constants.js";
 import { makeSignUp } from "./api.js";
 import {
   NetworkError,
@@ -10,20 +12,16 @@ export const submitSignUp = async (payload) => {
   const response = await makeSignUp(payload);
   if (response.status === 200) {
     const data = await response.json();
-    if (data.status === "success") {
+    if (data.status === RESPONSE_STATUS.SUCCESS) {
       return {
         msg: data.message,
       };
-    } else if (data.status === "error") {
+    } else if (data.status === RESPONSE_STATUS.ERROR) {
       throw new InvalidSubscriptionError(data.message);
     } else {
-      throw new UnknownSubscriptionError(
-        "There was an error processing your subscription. Please try again later"
-      );
+      throw new UnknownSubscriptionError(ERRORS.Unknown);
     }
   } else {
-    throw new NetworkError(
-      "There was an error during submit your info. Please try again"
-    );
+    throw new NetworkError(ERRORS.Network);
   }
 };

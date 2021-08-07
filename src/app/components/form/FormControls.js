@@ -8,6 +8,7 @@ import { FORM_CONTROL_TYPES, CONTROLS } from "./constants.js";
 import { submitSignUp } from "./actions.js";
 import { NetworkError, InvalidSubscriptionError } from "./Errors.js";
 import { docSel, docSelSwitch } from "./helpers";
+import { CTAS, TITLES } from "../../strings";
 
 export class FormControl {
   constructor(initData = {}) {
@@ -115,16 +116,16 @@ export class FormControl {
             this.submit(e);
           }}
         >
-          <p>*Indicates Required Field</p>
+          <p>{TITLES.RequiredField}</p>
           <div className="form-controls">
             {this.domControls.map((c) => c && c.render && c.render())}
           </div>
 
           <div class="form-buttons">
             <button type="submit" aria-label="Submit">
-              <span class="label">Submit</span>
+              <span class="label">{CTAS.Submit}</span>
             </button>
-            <button type="reset">Reset</button>
+            <button type="reset">{CTAS.Reset}</button>
           </div>
         </form>
       </div>
