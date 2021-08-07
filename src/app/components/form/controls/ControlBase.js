@@ -1,3 +1,5 @@
+import { docSel } from "../helpers";
+
 export default class ControlBase {
   constructor(props) {
     this.props = props;
@@ -12,7 +14,7 @@ export default class ControlBase {
   }
 
   getData() {
-    return { [this.props.id]: this.props.value };
+    return { [this.props.id]: encodeURIComponent(this.props.value) };
   }
 
   reset(resetValue = "") {
@@ -24,7 +26,7 @@ export default class ControlBase {
   }
 
   updateAfterValidate() {
-    const wrapper = document.querySelector(`#${this.formItemWrapperId}`);
+    const wrapper = docSel(`#${this.formItemWrapperId}`);
     this.hasErrors
       ? wrapper.classList.add("error")
       : wrapper.classList.remove("error");

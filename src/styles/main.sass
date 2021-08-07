@@ -7,7 +7,7 @@ html
     font-size: $sizeBase
 
     body
-        background-image: url('../assets/texture-min.jpg')
+        background: #fff url('../assets/texture-min.jpg')
 
         #root
             display: flex
@@ -29,5 +29,31 @@ html
                     &>div
                         flex-basis: 98%
 
-                    p
-                        font-weight: 300
+            /* https://www.a11yproject.com/posts/2013-01-11-how-to-hide-content/ */
+            .visually-hidden
+                clip: rect(0 0 0 0)
+                clip-path: inset(50%)
+                height: 1px
+                overflow: hidden
+                position: absolute
+                white-space: nowrap
+                width: 1px
+
+            /* https://github.com/jh3y/whirl/blob/dist/sass/basic.scss */
+            $thickness: 6px
+            $size: 15px
+            .loading-basic
+                position: relative
+            .loading-basic:before
+                content: ''
+                display: block
+                height: $size
+                width: $size
+                animation: spin .5s infinite linear
+                border: $thickness #561561 solid
+                border-left-color: #c56ed4
+                border-radius: 100%
+
+            @keyframes spin
+                to
+                    transform: rotate(360deg)

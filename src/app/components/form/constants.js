@@ -38,13 +38,13 @@ export const CONTROLS = [
     validation: VALIDATION_TYPE.EMAIL,
   },
   {
-    id: "organization",
+    id: "org",
     label: "organization",
     type: FORM_CONTROL_TYPES.TEXT_INPUT,
     options: [],
   },
   {
-    id: "isEuResident",
+    id: "euResident",
     label: "EU resident",
     isRequired: true,
     error: "EU Resident is required",
@@ -52,11 +52,11 @@ export const CONTROLS = [
     options: [
       {
         label: "Yes",
-        value: "yes",
+        value: "Yes",
       },
       {
         label: "No",
-        value: "no",
+        value: "No",
       },
     ],
   },

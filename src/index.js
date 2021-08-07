@@ -1,7 +1,7 @@
 import "normalize.css";
 import "./styles/main.sass";
-
 import { h } from "dom-chef";
+import { docSel } from "./app/components/form/helpers";
 import App from "./app/App.js";
 
-document.querySelector("#root").appendChild(<App />);
+docSel("#root").appendChild(<App />);

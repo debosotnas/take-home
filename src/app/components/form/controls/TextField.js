@@ -1,6 +1,6 @@
 import { h } from "dom-chef";
-import { isValidEmail } from "./helpers";
-import { VALIDATION_TYPE } from "./constants";
+import { isValidEmail } from "../helpers";
+import { VALIDATION_TYPE } from "../constants";
 import ControlBase from "./ControlBase.js";
 
 class TextField extends ControlBase {

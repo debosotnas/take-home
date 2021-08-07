@@ -3,6 +3,24 @@
 @mixin shadow()    
     box-shadow: 0px 1px 3px 0px $inputShadowColor
 
+.form-wrapper
+    p
+        font-weight: 300
+        margin-left: 8px
+    form.success
+        visibility: hidden
+    #formControlsMsg.success
+        font-size: 1.2rem
+        margin-top: 2rem
+        text-align: center
+    #formControlsMsg.error
+        font-size: 1rem
+        text-align: center
+        color: $redDark
+        background-color: $magentaSoft
+        padding: 10px
+        color: $magentaMedium
+
 .form-controls
     display: flex
     flex-wrap: wrap
@@ -17,7 +35,10 @@
     flex-basis: 48%
 
 .form-input
-
+    fieldset
+        border: 0
+        margin: 0
+        padding: 0
     label
         text-transform: uppercase
         display: block
@@ -64,7 +85,7 @@
 
     .error-caption
         margin-bottom: .625rem
-        margin-top: .125rem
+        margin-top: .525rem
         color: $inputErrorCaptionColor
         font-size: .7rem
         font-weight: 600
@@ -113,13 +134,30 @@
         @include shadow
         &[type="submit"]
             color: $whiteColor
+            .loading-basic
+                display: none
         &[type="reset"]
             margin-left: 1.25rem
             background-color: $whiteColor
             color: $grayHard
-        
+
+.form-wrapper form.loading
+    .form-buttons button[type="submit"]
+        &.loading-basic:before
+            position: absolute
+            top: 17%
+            left: 40%
+        .label
+            visibility: hidden
+
 
 @media all and (max-width: 47.937rem)
+    h1
+        text-align: center
+    .form-wrapper
+        p
+            margin-left: 0
+
     .form-controls
         flex-direction: column
         align-items: stretch
@@ -139,5 +177,9 @@
                 margin-left: 0
                 margin-top: 1.25rem
 
+    .form-wrapper form.loading
+        .form-buttons button[type="submit"]
+            &.loading-basic:before
+                left: 47%
 
 

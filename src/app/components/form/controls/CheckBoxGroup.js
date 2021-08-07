@@ -23,7 +23,9 @@ export class CheckBoxGroup extends ControlBase {
 
   getData() {
     const list = Array.from(this.getAllSelected().values());
-    return { [this.props.id]: list.map((sel) => sel.value) };
+    return list
+      .map((sel) => ({ [sel.value]: true }))
+      .reduce((prev, curr) => ({ ...prev, ...curr }), {});
   }
 
   render() {
@@ -42,24 +44,27 @@ export class CheckBoxGroup extends ControlBase {
               {this.props.isRequired && "*"}
             </label>
           )}
-          <div className="checkbox-wrapper">
-            {opts.map(({ value, label }) => {
-              return (
-                <div className="checkbox-item">
-                  <input
-                    id={value}
-                    name={checkGroupName}
-                    type="checkbox"
-                    value={value}
-                    onClick={() => {
-                      this.onValueUpdate();
-                    }}
-                  />{" "}
-                  <label for={value}>{label}</label>
-                </div>
-              );
-            })}
-          </div>
+          <fieldset>
+            <legend className="visually-hidden">communication channel</legend>
+            <div className="checkbox-wrapper">
+              {opts.map(({ value, label }) => {
+                return (
+                  <div className="checkbox-item">
+                    <input
+                      id={value}
+                      name={checkGroupName}
+                      type="checkbox"
+                      value={value}
+                      onClick={() => {
+                        this.onValueUpdate();
+                      }}
+                    />{" "}
+                    <label for={value}>{label}</label>
+                  </div>
+                );
+              })}
+            </div>
+          </fieldset>
         </div>
       </div>
     );

@@ -9,7 +9,6 @@ const App = () => {
       <Box className="header">
         <div>
           <h1>Sign up for email updates</h1>
-          <p>*Indicates Required Field</p>
         </div>
       </Box>
       {formControl.render()}
