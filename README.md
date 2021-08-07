@@ -19,13 +19,13 @@ npm start
 npm run build
 ```
 
-# Main dependencies
+## Main dependencies
 - Webpack
 - Babel
 - Dom-Chef
 - Sass
 
-# A11y used tools
+## A11y used tools
 - Wave: https://wave.webaim.org/
 - IBM A11y checker: https://addons.mozilla.org/en-US/firefox/addon/accessibility-checker/
 - axe Dev Tools: https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd
